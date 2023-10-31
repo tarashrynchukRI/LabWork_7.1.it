@@ -1,9 +1,12 @@
-function generateArray(size, min, max) {
-   const array = [];
-   for (let i = 0; i < size; i++) {
-      array[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+function generateMatrix(rows, cols, min, max) {
+   const matrix = [];
+   for (let i = 0; i < rows; i++) {
+      matrix[i] = [];
+      for (let j = 0; j < cols; j++) {
+         matrix[i][j] = Math.floor(Math.random() * (max - min + 1)) + min;
+      }
    }
-   return array;
+   return matrix;
 }
 
-module.exports = generateArray;
+module.exports = generateMatrix;

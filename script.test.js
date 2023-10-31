@@ -1,18 +1,18 @@
-const generateArray = require("./script-test");
+const generateMatrix = require("./script-test");
 
-describe("generateArray", () => {
-   test("generates an array of the correct size", () => {
-      const size = 26;
-      const array = generateArray(size, -20, 40);
-      expect(array.length).toBe(size);
+test('Перевірка функції generateMatrix', () => {
+   const matrix = generateMatrix(5, 5, 1, 10);
+   // Перевірка кількості рядків
+   expect(matrix.length).toBe(5);
+   // Перевірка кількості стовпців
+   matrix.forEach(row => {
+      expect(row.length).toBe(5);
    });
-   test("generates an array with elements within the specified range", () => {
-      const min = -20;
-      const max = 40;
-      const array = generateArray(20, min, max);
-      array.forEach(el => {
-         expect(el).toBeGreaterThanOrEqual(min);
-         expect(el).toBeLessThanOrEqual(max);
+   // Перевірка діапазону значень
+   matrix.forEach(row => {
+      row.forEach(value => {
+         expect(value).toBeGreaterThanOrEqual(1);
+         expect(value).toBeLessThanOrEqual(10);
       });
    });
-})
+});

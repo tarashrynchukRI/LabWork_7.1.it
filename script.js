@@ -35,12 +35,32 @@ function processElements(matrix) {
    }
    return { count: count, sum: sum };
 }
+function sortMatrix(matrix) {
+   matrix.sort((a, b) => {
+       if (a[0] === b[0]) {
+           if (a[1] === b[1]) {
+               return b[2] - a[2];
+           } else {
+               return b[1] - a[1];
+           }
+       } else {
+           return a[0] - b[0];
+       }
+   });
+}
 
 const matrix = generateMatrix(7, 6, 9, 61);
 console.log("Сформована матриця: ");
 printMatrix(matrix);
+sortMatrix(matrix);
+console.log("Матриця після впорядкування:");
+printMatrix(matrix);
 const result = processElements(matrix);
-console.log("К-ть елементів які задовольняють критерії: " + result.count);
-console.log("Сума елементів які задовольняють критерії: " + result.sum);
+console.log("k = " + result.count);
+console.log("S = " + result.sum);
 console.log("Матриця після обробки елементів:");
 printMatrix(matrix);
+
+
+
+
